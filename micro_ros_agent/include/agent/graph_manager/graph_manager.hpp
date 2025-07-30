@@ -195,6 +195,12 @@ public:
             const eprosima::fastdds::dds::DomainParticipant* participant,
             const dds::xrce::ObjectKind& entity_kind);
 
+    /**
+     * @brief   Sets the namespace prefix for all nodes.
+     * @param   namespace_prefix The namespace to prefix to all ROS nodes.
+     */
+    void set_namespace_prefix(const std::string& namespace_prefix);
+
 private:
 
     /**
@@ -280,9 +286,11 @@ private:
             std::string& node_name,
             std::string& node_namespace);
 
+private:
     eprosima::fastdds::dds::DomainId_t domain_id_;
     bool graph_changed_;
     bool display_on_change_;
+    std::string namespace_prefix_;
     std::thread microros_graph_publisher_;
     std::mutex mtx_;
     std::condition_variable cv_;
