@@ -211,17 +211,21 @@ bool Agent::create(
             std::move(on_create_requester));
 
         /**
-         * Add CREATE_TOPIC callback.
+         * Add PRE_CREATE_TOPIC callback.
          */
-        std::function<void (eprosima::fastrtps::TopicAttributes&)> on_create_topic
-            ([&](eprosima::fastrtps::TopicAttributes& attrs) -> void
+        std::function<void (
+            const eprosima::fastdds::dds::DomainParticipant *,
+            eprosima::fastrtps::TopicAttributes *)> pre_create_topic
+            ([&](const eprosima::fastdds::dds::DomainParticipant *participant,
+                  eprosima::fastrtps::TopicAttributes *attrs) -> void
             {
-                attrs.topicName = utils::Namespace::apply_namespace_to_topic(attrs.getTopicName().c_str(), namespace_prefix_);
+                (void)participant;
+                attrs->topicName = utils::Namespace::apply_namespace_to_topic(attrs->getTopicName().c_str(), namespace_prefix_);
             });
         xrce_dds_agent_instance_.add_middleware_callback(
             eprosima::uxr::Middleware::Kind::FASTDDS,
-            eprosima::uxr::middleware::CallbackKind::CREATE_TOPIC,
-            std::move(on_create_topic));
+            eprosima::uxr::middleware::CallbackKind::PRE_CREATE_TOPIC,
+            std::move(pre_create_topic));
 
         /**
          * Add DELETE_REQUESTER callback.
