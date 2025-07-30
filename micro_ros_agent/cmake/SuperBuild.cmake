@@ -23,13 +23,10 @@ unset(xrceagent_DIR CACHE)
 find_package(xrceagent 2 EXACT QUIET)
 if(NOT xrceagent_FOUND)
     ExternalProject_Add(xrceagent
-            SOURCE_DIR
-                /home/jh/Micro-XRCE-DDS-Agent # Temp path for testing, will be changed to the bit repo later
-            # Commented out original git source:
-            # GIT_REPOSITORY
-            #     https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-            # GIT_TAG
-            #     v2.4.3
+            GIT_REPOSITORY
+                https://github.com/fictionlab/Micro-XRCE-DDS-Agent.git
+            GIT_TAG
+                8d66eb245e21bc30ab57cddfbdae53628b2b740e
             PREFIX
                 ${PROJECT_BINARY_DIR}/agent
             INSTALL_DIR
