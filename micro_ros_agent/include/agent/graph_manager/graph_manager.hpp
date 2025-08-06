@@ -81,7 +81,7 @@ public:
     /**
      * @brief   Default constructor.
      */
-    GraphManager(eprosima::fastdds::dds::DomainId_t domain_id);
+    GraphManager(eprosima::fastdds::dds::DomainId_t domain_id, const std::string& namespace_prefix);
 
     /**
      * @brief   Default destructor.
@@ -194,13 +194,6 @@ public:
             const eprosima::fastrtps::rtps::GUID_t& entity_guid,
             const eprosima::fastdds::dds::DomainParticipant* participant,
             const dds::xrce::ObjectKind& entity_kind);
-
-    /**
-     * @brief   Sets the namespace prefix for all nodes.
-     * @param   namespace_prefix The namespace to prefix to all ROS nodes.
-     */
-    void set_namespace_prefix(const std::string& namespace_prefix);
-
 private:
 
     /**
@@ -286,7 +279,6 @@ private:
             std::string& node_name,
             std::string& node_namespace);
 
-private:
     eprosima::fastdds::dds::DomainId_t domain_id_;
     bool graph_changed_;
     bool display_on_change_;

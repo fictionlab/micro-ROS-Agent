@@ -21,8 +21,6 @@
 
 #include <agent/graph_manager/graph_manager.hpp>
 
-#include <fastrtps/attributes/TopicAttributes.h>
-
 #include <map>
 #include <memory>
 

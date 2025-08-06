@@ -35,7 +35,7 @@ bool Agent::create(
 {
     for (int i = 1; i < argc - 1; ++i)
     {
-        if (strcmp(argv[i], "-n") == 0 || strcmp(argv[i], "--namespace") == 0)
+        if (strcmp(argv[i], "-n") == 0 || strcmp(argv[i], "--namespace-prefix") == 0)
         {
             namespace_prefix_ = std::string(argv[i + 1]);
             if (namespace_prefix_.empty() || namespace_prefix_[0] != '/')
@@ -333,18 +333,11 @@ auto it = graph_manager_map_.find(domain_id);
 
     if (it != graph_manager_map_.end()) {
         return it->second;
-    }else{
-        auto graph_manager = std::make_shared<graph_manager::GraphManager>(domain_id);
-        // Set namespace prefix if one was specified
-        if (!namespace_prefix_.empty())
-        {
-            graph_manager->set_namespace_prefix(namespace_prefix_);
-        }
-        
+    }else{        
         return graph_manager_map_.insert(
             std::make_pair(
                 domain_id,
-                graph_manager
+                std::make_shared<graph_manager::GraphManager>(domain_id, namespace_prefix_)
             )
         ).first->second;
     }

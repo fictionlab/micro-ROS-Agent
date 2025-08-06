@@ -26,7 +26,7 @@ if(NOT xrceagent_FOUND)
             GIT_REPOSITORY
                 https://github.com/fictionlab/Micro-XRCE-DDS-Agent.git
             GIT_TAG
-                8d66eb245e21bc30ab57cddfbdae53628b2b740e
+                v2.4.3-fictionlab1
             PREFIX
                 ${PROJECT_BINARY_DIR}/agent
             INSTALL_DIR
