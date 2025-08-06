@@ -333,7 +333,7 @@ auto it = graph_manager_map_.find(domain_id);
 
     if (it != graph_manager_map_.end()) {
         return it->second;
-    }else{        
+    }else{
         return graph_manager_map_.insert(
             std::make_pair(
                 domain_id,

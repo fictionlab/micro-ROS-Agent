@@ -81,7 +81,7 @@ public:
     /**
      * @brief   Default constructor.
      */
-    GraphManager(eprosima::fastdds::dds::DomainId_t domain_id, const std::string& namespace_prefix);
+    GraphManager(eprosima::fastdds::dds::DomainId_t domain_id, const std::string& namespace_prefix = "");
 
     /**
      * @brief   Default destructor.
@@ -194,6 +194,7 @@ public:
             const eprosima::fastrtps::rtps::GUID_t& entity_guid,
             const eprosima::fastdds::dds::DomainParticipant* participant,
             const dds::xrce::ObjectKind& entity_kind);
+
 private:
 
     /**
