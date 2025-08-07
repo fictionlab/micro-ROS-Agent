@@ -2,6 +2,11 @@
 Changelog for package micro-ros_agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add custom namespacing to bridged ROS interfaces (`#1 <https://github.com/fictionlab/micro-ROS-Agent/issues/1>`_)
+* Contributors: Jan Hernas
+
 5.0.2 (2024-05-31)
 ------------------
 * Jazzy Release
