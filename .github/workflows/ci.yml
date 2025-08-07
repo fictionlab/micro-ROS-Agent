@@ -1,11 +1,12 @@
 name: CI micro-ROS Agent
 
 on:
+    push:
+      branches:
+        - 'humble-fictionlab'
     pull_request:
       branches:
-        - 'humble'
-    schedule:
-      - cron: '33 6 * * *'
+        - 'humble-fictionlab'
 
 jobs:
 
