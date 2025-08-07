@@ -2,8 +2,8 @@
 Changelog for package micro-ros_agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+13.0.0 (2025-08-07)
+-------------------
 * Use backported version of Micro XRCE-DDS agent
 * Add custom namespacing to bridged ROS interfaces (`#1 <https://github.com/fictionlab/micro-ROS-Agent/issues/1>`_)
 * Fix Micro XRCE-DDS Agent tag (`#241 <https://github.com/fictionlab/micro-ROS-Agent/issues/241>`_)
