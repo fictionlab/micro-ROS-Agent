@@ -1,11 +1,12 @@
 name: CI micro-ROS Agent
 
 on:
+    push:
+      branches:
+        - 'jazzy-fictionlab'
     pull_request:
       branches:
-        - 'jazzy'
-    schedule:
-      - cron: '33 6 * * *'
+        - 'jazzy-fictionlab'
 
 jobs:
 
